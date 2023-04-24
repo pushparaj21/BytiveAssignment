@@ -3,6 +3,8 @@ package com.testbutton;
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
 import com.facebook.react.ReactRootView;
+import android.os.Bundle;
+import com.zoontek.rnbootsplash.RNBootSplash;
 
 public class MainActivity extends ReactActivity {
 
@@ -13,6 +15,12 @@ public class MainActivity extends ReactActivity {
   @Override
   protected String getMainComponentName() {
     return "Testbutton";
+  }
+
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    RNBootSplash.init(this); 
+    super.onCreate(savedInstanceState); 
   }
 
   /**
@@ -37,6 +45,7 @@ public class MainActivity extends ReactActivity {
       reactRootView.setIsFabric(BuildConfig.IS_NEW_ARCHITECTURE_ENABLED);
       return reactRootView;
     }
+  
 
     @Override
     protected boolean isConcurrentRootEnabled() {
@@ -44,5 +53,6 @@ public class MainActivity extends ReactActivity {
       // More on this on https://reactjs.org/blog/2022/03/29/react-v18.html
       return BuildConfig.IS_NEW_ARCHITECTURE_ENABLED;
     }
+    
   }
 }

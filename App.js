@@ -6,7 +6,7 @@ import {
   ActivityIndicator,
   StyleSheet,
 } from 'react-native';
-
+import RNBootSplash from 'react-native-bootsplash';
 import Card from './components/Card';
 const App = () => {
   const [Data, setData] = useState([]);
@@ -27,6 +27,8 @@ const App = () => {
   };
 
   useEffect(() => {
+    RNBootSplash.hide({fade: true, duration: 500});
+    console.log('Bootsplash has been hidden successfully');
     fetchData();
   }, []);
 
