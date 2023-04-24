@@ -4,6 +4,7 @@ import {
   SafeAreaView,
   FlatList,
   ActivityIndicator,
+  StyleSheet,
 } from 'react-native';
 
 import Card from './components/Card';
@@ -57,9 +58,13 @@ const App = () => {
   };
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={styles.mainPage}>
       {isLoading ? (
-        <ActivityIndicator size="large" color="blue" />
+        <ActivityIndicator
+          size="large"
+          color="blue"
+          style={styles.activityIndicator}
+        />
       ) : (
         <FlatList
           style={{width: '100%'}}
@@ -79,3 +84,8 @@ const App = () => {
 };
 
 export default App;
+
+const styles = StyleSheet.create({
+  mainPage: {backgroundColor: 'white', flex: 1},
+  activityIndicator: {flex: 1, justifyContent: 'center'},
+});
